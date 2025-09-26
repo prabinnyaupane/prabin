@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 // Serve the index.html file
 app.get("/", (req, res) => {
-    res.render('index', { name: 'Manoj Neupane' });
+    res.render('index');
 });
 
 app.listen(3000, () => {
