@@ -7,11 +7,11 @@
 
         <!-- Desktop Nav -->
         <nav class="hidden md:flex space-x-6">
-            <a href="#" class="text-gray-600 hover:text-blue-600 focus:text-blue-600 transition">Home</a>
-            <a href="#about" class="text-gray-600 hover:text-blue-600 focus:text-blue-600 transition">About</a>
-            <a href="#skill" class="text-gray-600 hover:text-blue-600 focus:text-blue-600 transition">Skills</a>
-            <a href="#resume" class="text-gray-600 hover:text-blue-600 focus:text-blue-600 transition">Resume</a>
-            <a href="#contact" class="text-gray-600 hover:text-blue-600 focus:text-blue-600 transition">Contact</a>
+            <a href="#" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">Home</a>
+            <a href="#about" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">About</a>
+            <a href="#skill" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">Skills</a>
+            <a href="#resume" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">Resume</a>
+            <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">Contact</a>
         </nav>
 
         <!-- Mobile Hamburger -->
@@ -24,42 +24,59 @@
 
     <!-- Mobile Nav -->
     <nav id="mobile-menu"
-        class="hidden absolute top-full left-0 w-full bg-white shadow-md flex flex-col transition-all duration-300 ease-in-out">
-        <a href="#" class="px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Home</a>
-        <a href="#about"
-            class="px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">About</a>
-        <a href="#skill"
-            class="px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Skills</a>
-        <a href="#resume"
-            class="px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Resume</a>
-        <a href="#contact"
-            class="px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Contact</a>
+         class="hidden absolute top-full left-0 w-full bg-white shadow-md flex flex-col transition-all duration-300 ease-in-out">
+        <a href="#" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Home</a>
+        <a href="#about" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">About</a>
+        <a href="#skill" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Skills</a>
+        <a href="#resume" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Resume</a>
+        <a href="#contact" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Contact</a>
     </nav>
 </header>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const btn = document.getElementById("menu-btn");
-        const menu = document.getElementById("mobile-menu");
-        const links = menu.querySelectorAll("a");
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const desktopLinks = document.querySelectorAll(".nav-link");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
 
-        // toggle menu
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
+    // Toggle mobile menu
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
 
-        // close menu when link is clicked
-        links.forEach(link => {
-            link.addEventListener("click", () => {
-                menu.classList.add("hidden");
-            });
-        });
-
-        // auto close menu when scroll
-        window.addEventListener("scroll", () => {
-            if (!menu.classList.contains("hidden")) {
-                menu.classList.add("hidden");
-            }
+    // Close menu when a mobile link is clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.add("hidden");
         });
     });
+
+    // Auto close menu on scroll
+    window.addEventListener("scroll", () => {
+        if (!menu.classList.contains("hidden")) {
+            menu.classList.add("hidden");
+        }
+    });
+
+    // Highlight active link on scroll
+    const sections = document.querySelectorAll("section, #"); // Replace '#' with your section selectors if needed
+
+    function setActiveLink() {
+        let scrollPos = window.scrollY + 100; // Adjust offset if needed
+        sections.forEach(section => {
+            const id = section.getAttribute("id");
+            if (section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
+                desktopLinks.forEach(link => {
+                    link.classList.remove("text-blue-600", "border-b-2", "border-blue-600");
+                    if (link.getAttribute("href") === `#${id}`) {
+                        link.classList.add("text-blue-600", "border-b-2", "border-blue-600");
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+});
 </script>
