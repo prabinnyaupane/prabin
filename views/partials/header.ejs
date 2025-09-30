@@ -1,82 +1,115 @@
-<header class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
-    <div class="container mx-auto px-6 md:px-24 py-3 flex justify-between items-center">
-        <!-- Logo -->
-        <div class="flex items-center space-x-3">
-            <img src="/image/Untitled-1 - Copy copy.png" alt="Logo" class="h-10 w-auto">
-        </div>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex space-x-6">
-            <a href="#" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">Home</a>
-            <a href="#about" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">About</a>
-            <a href="#skill" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">Skills</a>
-            <a href="#resume" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">Resume</a>
-            <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 transition">Contact</a>
-        </nav>
+<!-- Mobile Top Bar -->
+<div class="md:hidden flex justify-end items-center text-white p-4 fixed w-screen z-50 ">
+  <button id="menu-btn" class="text-2xl p-2 rounded hover:bg-zinc-800 transition">
+    <i id="menu-icon" class="fas fa-bars"></i>
+  </button>
+</div>
 
-        <!-- Mobile Hamburger -->
-        <div class="md:hidden">
-            <button id="menu-btn" class="text-gray-700 focus:outline-none text-2xl">
-                ☰
-            </button>
-        </div>
+<!-- Overlay -->
+<div id="overlay"
+  class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden z-30 transition-opacity duration-300"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar"
+  class="fixed top-0 left-0 w-64 h-screen bg-[#111211] text-white flex flex-col items-center py-6 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 shadow-xl font-poppins">
+
+  <!-- Profile -->
+  <div class="relative flex flex-col items-center mb-8 p-4">
+    <div class="relative w-32 h-32 mb-3">
+      <img src="images/profile.jpg" alt="Profile" class="w-full h-full rounded-full object-cover shadow-2xl border-4 border-indigo-500">
+      <div class="absolute inset-0 bg-black bg-opacity-20 rounded-full"></div>
     </div>
+    <h1 class="text-2xl font-semibold tracking-wide text-center">Prabin Nyaupane</h1>
+    <p class="text-sm text-gray-400 mt-1"> Database Administrator </p>
+  </div>
 
-    <!-- Mobile Nav -->
-    <nav id="mobile-menu"
-         class="hidden absolute top-full left-0 w-full bg-white shadow-md flex flex-col transition-all duration-300 ease-in-out">
-        <a href="#" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Home</a>
-        <a href="#about" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">About</a>
-        <a href="#skill" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Skills</a>
-        <a href="#resume" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Resume</a>
-        <a href="#contact" class="mobile-link px-4 py-3 text-gray-700 hover:bg-gray-200 focus:bg-blue-100 focus:text-blue-600">Contact</a>
-    </nav>
-</header>
+  <!-- Nav Menu -->
+  <nav class="flex-1 w-full">
+    <ul class="flex flex-col gap-3 text-base font-medium px-2">
+      <li>
+        <a href="#home"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+          <i class="fas fa-home w-5 text-indigo-400"></i> Home
+        </a>
+      </li>
+      <li>
+        <a href="#about"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+          <i class="fas fa-user w-5 text-indigo-400"></i> About Me
+        </a>
+      </li>
+      <li>
+        <a href="#services"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+          <i class="fas fa-briefcase w-5 text-indigo-400"></i> What I Do
+        </a>
+      </li>
+      <li>
+        <a href="#resume"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+          <i class="fas fa-file-alt w-5 text-indigo-400"></i> Resume
+        </a>
+      </li>
+      <li>
+        <a href="#certifications"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+          <i class="fas fa-certificate w-5 text-indigo-400"></i> Certifications
+        </a>
+      </li>
+      <li>
+        <a href="#contact"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+          <i class="fas fa-envelope w-5 text-indigo-400"></i> Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
 
+  <!-- Social Icons -->
+  <div class="flex space-x-5 mt-6">
+    <a href="https://www.facebook.com/prabee.nnyaupane/" target="_blank"
+      class="hover:text-blue-500 transition text-xl"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://x.com/NyaupanePrabin" target="_blank" class="hover:text-sky-400 transition text-xl"><i
+        class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/prabin-nyaupane-a492a1225/" target="_blank"
+      class="hover:text-blue-500 transition text-xl"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/prabinnyaupane" target="_blank" class="hover:text-gray-300 transition text-xl"><i
+        class="fab fa-github"></i></a>
+  </div>
+</aside>
+
+<!-- JS (same as your current) -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("mobile-menu");
-    const desktopLinks = document.querySelectorAll(".nav-link");
-    const mobileLinks = document.querySelectorAll(".mobile-link");
+  const menuBtn = document.getElementById('menu-btn');
+  const menuIcon = document.getElementById('menu-icon');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
 
-    // Toggle mobile menu
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
+  menuBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('-translate-x-full');
+    overlay.classList.toggle('hidden');
+
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-times');
+  });
+
+  overlay.addEventListener('click', () => {
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+    menuIcon.classList.add('fa-bars');
+    menuIcon.classList.remove('fa-times');
+  });
+
+  const navLinks = document.querySelectorAll('#sidebar nav ul li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+      menuIcon.classList.add('fa-bars');
+      menuIcon.classList.remove('fa-times');
     });
-
-    // Close menu when a mobile link is clicked
-    mobileLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            menu.classList.add("hidden");
-        });
-    });
-
-    // Auto close menu on scroll
-    window.addEventListener("scroll", () => {
-        if (!menu.classList.contains("hidden")) {
-            menu.classList.add("hidden");
-        }
-    });
-
-    // Highlight active link on scroll
-    const sections = document.querySelectorAll("section, #"); // Replace '#' with your section selectors if needed
-
-    function setActiveLink() {
-        let scrollPos = window.scrollY + 100; // Adjust offset if needed
-        sections.forEach(section => {
-            const id = section.getAttribute("id");
-            if (section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
-                desktopLinks.forEach(link => {
-                    link.classList.remove("text-blue-600", "border-b-2", "border-blue-600");
-                    if (link.getAttribute("href") === `#${id}`) {
-                        link.classList.add("text-blue-600", "border-b-2", "border-blue-600");
-                    }
-                });
-            }
-        });
-    }
-
-    window.addEventListener("scroll", setActiveLink);
-});
+  });
 </script>

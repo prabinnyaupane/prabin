@@ -5,26 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prabin Nyaupane</title>
-    <link rel="shortcut icon" href="image/Untitled-1 - Copy copy.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="styleseet/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
 
-<body>
+<body class="relative">
+
     <%- include('./partials/header') %>
-    <%- include('./partials/hero') %>
-    <%- include('./partials/about') %>
-    <%- include('./partials/skills') %>
-    <%- include('./partials/resume') %>
-    <%- include('./partials/licenses') %>
-    <%- include('./partials/publications') %>
-    <%- include('./partials/contact') %>
-    <%- include('./partials/footer') %>
 
+        <!-- Main Content -->
+        <main class="flex-1 md:ml-64 ">
+            <%- include('./partials/hero') %>
+                <%- include('./partials/about') %>
+                    <%- include('./partials/services') %>
+                        <%- include('./partials/resume') %>
+                        <%- include('./partials/certifications') %>
+                            <!-- <%- include('./partials/portfolio') %> -->
+                                    <%- include('./partials/contact') %>
+                                        <%- include('./partials/footer') %>
+        </main>
 
-        
 </body>
+
+
 
 </html>
